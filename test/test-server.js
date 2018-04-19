@@ -180,3 +180,19 @@ describe('Recipes', function() {
   });
 });
 
+it('should update item by id on PUT', function() {
+  const newRecipe = {name: 'baked beans', ingredients: ['beans', 'other stuff']};
+  return chai.request(app).get('/recipes')
+  .then(function(res) {
+    newRecipe.id = res.body[0].id;
+    return chai.request(app).put(`/recipes/${newRecipe.id}`).send(newRecipe);
+  })
+  .then(function(res) {
+    expect(res).to.have.status(204);
+    expect(res.body).to.be.a('object');
+  });
+});
+
+it('should delete item by id on DELETE', function() {
+  
+});
