@@ -153,7 +153,7 @@ describe('Recipes', function() {
     return closeServer();
   });
 
-  it('should list items on GET', function() {
+  it('should list recipe items on GET', function() {
     return chai.request(app).get('/recipes').then(function(res) {
       expect(res).to.have.status(200);
       expect(res).to.be.json;
@@ -167,7 +167,7 @@ describe('Recipes', function() {
     });
   });
 
-  it('should create item on POST', function() {
+  it('should create recipe item on POST', function() {
     const newObject = {name: "guacamole", ingredients: ["avocado", "tomato", "red onion", "jalapeno"]};
     return chai.request(app).post('/recipes').send(newObject).then(function(res) {
       expect(res).to.have.status(201);
@@ -180,7 +180,7 @@ describe('Recipes', function() {
   });
 });
 
-it('should update item by id on PUT', function() {
+it('should update recipe item by id on PUT', function() {
   const newRecipe = {name: 'baked beans', ingredients: ['beans', 'other stuff']};
   return chai.request(app).get('/recipes')
   .then(function(res) {
@@ -193,6 +193,11 @@ it('should update item by id on PUT', function() {
   });
 });
 
-it('should delete item by id on DELETE', function() {
-  
+it('should delete recipe item by id on DELETE', function() {
+  return chai.request(app).get('/recipes').then(function(res) {
+    return chai.request(app).delete(`/recipes/${res.body[0].id}`);
+  })
+  .then(function(res) {
+    expect(res).to.have.status(204);
+  });
 });
