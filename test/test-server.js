@@ -166,4 +166,17 @@ describe('Recipes', function() {
       });
     });
   });
+
+  it('should create item on POST', function() {
+    const newObject = {name: "guacamole", ingredients: ["avocado", "tomato", "red onion", "jalapeno"]};
+    return chai.request(app).post('/recipes').send(newObject).then(function(res) {
+      expect(res).to.have.status(201);
+      expect(res).to.be.json;
+      expect(res.body).to.be.a('object');
+      expect(res.body).to.include.keys('id', 'name', 'ingredients');
+      expect(res.body.id).to.not.equal(null);
+      expect(res.body).to.deep.equal(Object.assign(newObject, {id: res.body.id}));
+    });
+  });
 });
+
