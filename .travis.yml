@@ -1,2 +1,10 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: N2i1ZVCvHF9xKlPlpjblgFUJueQtfxJE6CkT1C7M/ctnWrglcNe1z3z/44AISF8rA0hnikirht4FsGMfIv/RVQ88PXVjv/wjdACqhxudPxM0jZFr9lBQfdFPdtpyHcgr6oGAsVm8NtQQwpr7qeyF3ipVGki6vOxoCNVWNk+Ifr3fdc1aD9lJwPHfJi6n7iAG/ctWOdgvF/RESwpYIHWkoDhutrlcfTQqR1/0x4lF+Nz1wDhMkOHAy+D+b/V2pCcs0714F+2ABH2l8m4RzZDtzQsFxJhch1v8AbI1KQ0dR8OOxdCPSZYZ3iSHJBdalJG9Vhk6/ZNcclafuEwcmHv6yKEN4sPdLQJHi/+dLMaiEiVb8mQsKU/Ci/qcQe52LaV9d6ZutFqP4YFLVVHgn6QK4zVowdnTdrvYIaYjfgWGhgbJ+5kqVbF2k1IKDv32Tfnd9wy1PwuxFjENzY/V33vfgTaesSiUdOi+fVkudv7HvMWD6ea2eNYCAjBHB0fU9MpdAubW9RpGXXCRi0LHa39lDFwIeupd85QjOGhRFhGOl+ZH7MpJsNmY6uShNtdAe7oMNB+p4fpu9TSadv+H+AFeqFa2TgI0wYM4a7jmedUbivmQbYAc16aT2Sa7alKBNnZpdMIe+ZMCaluBkmbUncawZkaMUyK7+gtSP0nkqgwIj4I=
+  app: guarded-savannah-68362
+  on:
+    repo: rachelekm/node-shopping-list-integration-tests
+    branch: tests-for-recipes
